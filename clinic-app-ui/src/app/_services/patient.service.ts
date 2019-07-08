@@ -20,13 +20,16 @@ export class PatientService {
 
 
     registerPatient(patient: Patient) {
-        let urlParam = new HttpParams();
-        urlParam = ApiHelper.extractUrlParam(urlParam);
-        return this.httpHelperService.get(`${this.apiRoot}/patient/register`,patient);
+        console.log(patient);
+        return this.httpHelperService.post(`${this.apiRoot}/patient/register`,patient);
     }
 
-   
+    searchPatient(req){
+        let urlParam = new HttpParams();
+        urlParam = ApiHelper.extractUrlParam(urlParam, req);
 
-
+        console.log(urlParam);
+        return this.httpHelperService.get(`${this.apiRoot}/patient/search`,urlParam)
+    }
 
 }
