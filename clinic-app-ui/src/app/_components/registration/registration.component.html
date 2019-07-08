@@ -4,51 +4,49 @@
     </mat-toolbar>
     <mat-card class="my-card">
         <mat-card-content>
-            <form class="my-form">
+            <form class="my-form" [formGroup]="PatientregisterForm" (ngSubmit)="onSubmit()">
                 <mat-form-field class="full-width">
                     <mat-label>Name</mat-label>
-                    <input  matInput  placeholder="First name"  name="name"  required >
+                    <input  matInput  placeholder="First name"  formControlName="name"  required >
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <mat-label>Address</mat-label>
-                    <input  matInput  placeholder="Address" name="address"  required>
+                    <input  matInput  placeholder="Address" formControlName="address"  required>
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <mat-label>Email</mat-label>
-                    <input  matInput  placeholder="Email" name="email">
+                    <input  matInput  placeholder="Email" type="text" formControlName="email">
                 </mat-form-field>
 
                 <mat-form-field class="full-width">
-                        <mat-label>PH:</mat-label>
-                        <input  matInput  placeholder="Phone number" name="email">
+                        <mat-label>HP:</mat-label>
+                        <input  matInput  placeholder="Phone number" type="number" formControlName="hp">
                 </mat-form-field>
 
                 <mat-form-field class="full-width">
                         <mat-label>IC: </mat-label>
-                        <input  matInput  placeholder="Idendical card" name="email">
+                        <input  matInput  placeholder="Idendical card" formControlName="ic">
                 </mat-form-field>
-                <!-- <mat-form-field class="full-width">
-                    <mat-label>Password</mat-label>
-                    <input  matInput  placeholder="Password"  name="password">
-                </mat-form-field> -->
-           
+                           
                 <section class="example-section">
                 <label class="genderl_label">Gender:</label>
-                <mat-radio-group aria-label="Select an option">
+                <mat-radio-group aria-label="Select an option" formControlName="gender">
                         <mat-radio-button value="1">Male </mat-radio-button>
                         <mat-radio-button value="2">Female</mat-radio-button>
                 </mat-radio-group>
                 </section>
                 <mat-form-field>
                     <mat-label>Date of Birth</mat-label>
-                    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="dob">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
+
+                <div class="form-group">
+                        <button mat-raised-button [disabled]="loading" class="btn btn-primary" color="primary">REGISTER</button>
+                </div> 
             </form>
         </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button (click)="register()" color="primary">REGISTER</button>
-        </mat-card-actions>
+      
     </mat-card>
 </div>

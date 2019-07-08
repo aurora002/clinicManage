@@ -1,0 +1,59 @@
+<!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+  
+        <label>
+          Username:
+          <input type="text" formControlName="username">
+        </label>
+
+        <label>
+                Email:
+                <input type="email" formControlName="email">
+        </label>
+
+        <label>
+                Password:
+                <input type="password" formControlName="password">
+        </label>
+      
+        <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">Register</button>
+                <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                <a routerLink="/login" class="btn btn-link">Cancel</a>
+            </div>
+      
+</form> -->
+
+
+<div class="container abc">
+        <mat-toolbar>
+            <span>Registration</span>
+        </mat-toolbar>
+        <mat-card class="my-card">
+            <mat-card-content>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+                            <!-- <form class="my-form" #patientRegistrationForm="ngForm"> -->
+                    <mat-form-field class="full-width">
+                        <mat-label>Name</mat-label>
+                        <input  matInput  placeholder="First name"  formControlName="username" required >
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>Email</mat-label>
+                        <input  matInput  placeholder="Email" type="email" formControlName="email" required>
+                    </mat-form-field>
+                  
+    
+                    <mat-form-field class="full-width">
+                        <mat-label>Password</mat-label>
+                        <input  matInput  placeholder="Password" type="password" formControlName="password">
+                    </mat-form-field>
+                    <div class="form-group">
+                            <button mat-raised-button [disabled]="loading" class="btn btn-primary" color="primary">REGISTER</button>
+                    </div>                    
+                </form>
+            </mat-card-content>          
+        </mat-card>
+    </div>
+
+
+
+     
