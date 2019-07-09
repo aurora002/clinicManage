@@ -54,7 +54,7 @@ export class RegistrationComponent implements OnInit {
       this.loading = true;
       console.log(this.PatientregisterForm.value);
       this.patientService.registerPatient(this.PatientregisterForm.value)
-          .pipe(first())
+          // .pipe(first())
           .subscribe(
               data => {
                   this.alertService.success('Registration successful', true);

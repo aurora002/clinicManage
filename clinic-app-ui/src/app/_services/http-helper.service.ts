@@ -151,26 +151,6 @@ constructor(
   }
 
 
-  uploadFile(fileList) {
-
-    if (fileList.length > 0) {
-      let file: File = fileList[0];
-      let formData: FormData = new FormData();
-      formData.append('uploadFile', file, file.name);
-      console.log(file);
-      console.log(file.name);
-
-      let headers = new HttpHeaders();
-      headers.append('Content-Type', 'multipart/form-data');
-      headers.append('Accept', 'application/json');
-      // let options = new RequestOptions({ headers: headers });
-      let options = { headers: headers };
-      return this.http.post('/api/fileUpload', formData, options).pipe(catchError(this.handleError));
-
-    }
-
-  }
-
   login(url, req:User){
     let headers = new HttpHeaders();
     let token = this.getAuthToken();

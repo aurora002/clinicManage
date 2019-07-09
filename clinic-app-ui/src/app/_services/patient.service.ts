@@ -6,6 +6,7 @@ import { ApiHelper } from '../util/api-helper.util';
 
 import { Patient } from '../_models/patient';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 
 @Injectable({ providedIn: 'root' })
@@ -18,18 +19,15 @@ export class PatientService {
         private httpHelperService: HttpHelperService        
         ) { }
 
-
-    registerPatient(patient: Patient) {
+    registerPatient(patient: Patient): Observable<any> {
         console.log(patient);
         return this.httpHelperService.post(`${this.apiRoot}/patient/register`,patient);
     }
 
-    searchPatient(req){
+    searchPatient(req: any): Observable<any>{
         let urlParam = new HttpParams();
         urlParam = ApiHelper.extractUrlParam(urlParam, req);
-
-        console.log(urlParam);
-        return this.httpHelperService.get(`${this.apiRoot}/patient/search`,urlParam)
+        return this.httpHelperService.get(`${this.apiRoot}/patient/search`,urlParam);
     }
 
 }
