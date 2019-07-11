@@ -3,6 +3,7 @@ package com.dev.clinicapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +16,7 @@ import com.dev.clinicapp.entity.Patient;
 import com.dev.clinicapp.service.PatientRegistrationService;
 
 @RestController
-@RequestMapping({"/rest"})
+@RequestMapping({"/api/patient"})
 public class PatientRegistrationController {
     
 	@Autowired
@@ -26,8 +27,9 @@ public class PatientRegistrationController {
 		return service.findById(id);
 	}
 	
-	@PostMapping
+	@PostMapping(path="/register" , produces="application/json")
 	public Patient create(@RequestBody Patient patient) {
+		
 		return service.create(patient);
 	}
 	
