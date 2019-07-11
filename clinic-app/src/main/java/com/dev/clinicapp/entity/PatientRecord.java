@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
+//change to one to many
 @Entity
 public class PatientRecord {
 
@@ -27,6 +27,7 @@ public class PatientRecord {
 	private String diagnose;
 	private String note;
 	private String bill;
+	//private blob image;
 	
 	@CreationTimestamp
 	private LocalDateTime created_date;

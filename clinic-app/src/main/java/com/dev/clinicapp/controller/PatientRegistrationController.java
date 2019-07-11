@@ -31,7 +31,7 @@ public class PatientRegistrationController {
 		return service.create(patient);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping(path = {"{/id}"})
 	public Patient delete(int id) {
 		return service.delete(id);
 	}

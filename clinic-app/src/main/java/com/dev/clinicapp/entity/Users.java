@@ -15,7 +15,7 @@ public class Users {
 	private String email;
 	private String password;
 	private String role;
-	private int accessLevel;
+	//private int accessLevel;
 	
 	protected Users() {}
 
@@ -59,12 +59,4 @@ public class Users {
 		this.role = role;
 	}
 
-	public int getAccessLevel() {
-		return accessLevel;
-	}
-
-	public void setAccessLevel(int accessLevel) {
-		this.accessLevel = accessLevel;
-	}
-	
 }
