@@ -6,7 +6,7 @@ import com.dev.clinicapp.entity.Patient;
 
 public interface PatientRegistrationService {
    
-	void create (Patient p);
+	Patient create (Patient p);
     Patient delete (int id);
     Patient findById (int id);
     Patient findByName (String name);

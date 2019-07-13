@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.dev.clinicapp.entity.Patient;
 import com.dev.clinicapp.repository.PatientCrudRepository;
 
-
 @Service
 public class PatientRegistrationServiceImpl implements PatientRegistrationService {
 
@@ -17,12 +16,8 @@ public class PatientRegistrationServiceImpl implements PatientRegistrationServic
 	PatientCrudRepository patientCrudRepository;
 	 
 	@Override
-	public void create(Patient patient)  {
-		try {
-			patientCrudRepository.save(patient);
-		}catch( RuntimeException e) {
-			throw e;
-		}	 
+	public Patient create(Patient patient) {
+		return patientCrudRepository.save(patient);
 	}
 
 	@Override
