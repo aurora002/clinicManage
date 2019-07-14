@@ -12,8 +12,7 @@ import com.dev.clinicapp.repository.PatientCrudRepository;
 @Service
 public class PatientRegistrationServiceImpl implements PatientRegistrationService {
 
-	@Autowired
-	PatientCrudRepository patientCrudRepository;
+	private PatientCrudRepository patientCrudRepository;
 	 
 	@Override
 	public Patient create(Patient patient) {
