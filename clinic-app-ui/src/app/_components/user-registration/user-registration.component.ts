@@ -57,7 +57,9 @@ export class UserRegistrationComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-                this.alertService.success('Registration successful', true);
+
+                console.log(data['message']);
+                this.alertService.success(data['message'], true);
                 // this.router.navigate(['/login']);
             },
             error => {

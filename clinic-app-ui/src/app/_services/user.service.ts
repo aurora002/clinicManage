@@ -22,11 +22,6 @@ export class UserService {
     register(user: User) {
         let urlParam = new HttpParams();
         urlParam = ApiHelper.extractUrlParam(urlParam);
-        return this.httpHelperService.get(`${this.apiRoot}/users/register`,user);
+        return this.httpHelperService.post(`${this.apiRoot}/user/register`,user);
     }
-
-   
-
-
-
 }
