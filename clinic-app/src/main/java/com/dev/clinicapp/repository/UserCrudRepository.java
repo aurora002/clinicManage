@@ -8,7 +8,7 @@ import com.dev.clinicapp.entity.Users;
 @Repository
 public interface  UserCrudRepository extends JpaRepository<Users , Integer>{
 
-	Users findByName(String name);
-	Users findByNameAndId( String name, Integer id);
+	Users findByUsername(String name);
+	Users findByUsernameAndId( String name, Integer id);
 	
 }

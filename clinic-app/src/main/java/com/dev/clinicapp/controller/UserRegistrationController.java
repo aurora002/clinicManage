@@ -20,7 +20,7 @@ public class UserRegistrationController {
 	@Autowired
 	private UserRegistrationService userRegistrationservice;
 	
-	@GetMapping(path="register")
+	@GetMapping(path="/register")
 	public ResponseEntity<?> create(@RequestBody Users user){
 		
 		Users registerUser = userRegistrationservice.create(user);

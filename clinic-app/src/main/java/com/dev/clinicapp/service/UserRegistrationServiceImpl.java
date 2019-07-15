@@ -21,13 +21,13 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 	@Override
 	public Users findByUsername(String name) {
 		// TODO Auto-generated method stub
-		return userCrudRepository.findByName(name);
+		return userCrudRepository.findByUsername(name);
 	}
 
 	@Override
 	public Users findByUsernameAndId(String name, Integer id) {
 		// TODO Auto-generated method stub
-		return userCrudRepository.findByNameAndId(name, id);
+		return userCrudRepository.findByUsernameAndId(name, id);
 	}
 
 }
