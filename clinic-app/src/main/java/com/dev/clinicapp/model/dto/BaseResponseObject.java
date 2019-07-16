@@ -9,7 +9,7 @@ public class BaseResponseObject {
 
 	@JsonProperty("id")
 	private Long id;
-
+	
 	public String getMessage() {
 		return message;
 	}
@@ -24,6 +24,6 @@ public class BaseResponseObject {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
+	}	
 	
 }

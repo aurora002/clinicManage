@@ -1,29 +1,29 @@
-package com.dev.clinicapp.entity;
+package com.dev.clinicapp.model.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-
-@Entity
-public class Users {
-    
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
-	private String username;
-	private String email;
-	private String password;	
-	private String role;
+public class UserDTO {
 	
-	public Users() {}
+	@JsonProperty("id")
+	private Long id;
+	
+	@JsonProperty("username")
+	private String username;
+	
+	@JsonProperty("email")
+	private String email;
+	
+	@JsonProperty("password")
+	private String password;
+	
+	@JsonProperty("role")
+	private String role;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -47,8 +47,8 @@ public class Users {
 		return password;
 	}
 
-	public void setPassword(String string) {
-		this.password = string;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getRole() {
@@ -58,5 +58,7 @@ public class Users {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+	
 
 }
