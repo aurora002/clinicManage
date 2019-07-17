@@ -4,11 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dev.clinicapp.entity.Users;
-import com.dev.clinicapp.model.dto.UserDTO;
 import com.dev.clinicapp.repository.UserCrudRepository;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Service
 public class UserRegistrationServiceImpl implements UserRegistrationService {
@@ -16,11 +14,10 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 	@Autowired
 	private UserCrudRepository userCrudRepository;
 
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	@Override
-	public  Users create(Users userObj, UserDTO userDto) {	
+	public  Users create(Users userObj, Users userDto) {	
 		
 		userObj.setUsername(userDto.getUsername());
 		userObj.setEmail(userDto.getEmail());

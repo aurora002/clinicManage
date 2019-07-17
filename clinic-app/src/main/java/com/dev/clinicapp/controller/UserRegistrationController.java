@@ -25,10 +25,10 @@ public class UserRegistrationController {
 	private UserRegistrationService userRegistrationservice;
 	
 	@PostMapping(path="/register")
-	public ResponseEntity<?> create(@RequestBody  UserDTO userDto){
+	public ResponseEntity<?> create(@RequestBody  Users user){
 		try {			
 			Users userObj = new Users();
-			Users registerUser = userRegistrationservice.create(userObj, userDto);
+			Users registerUser = userRegistrationservice.create(userObj,user);
 			BaseResponseObject baseResponseObject = new BaseResponseObject();
 			baseResponseObject.setMessage("Username " + registerUser.getUsername()+ " is created.");
 			return ResponseEntity.ok(baseResponseObject);
