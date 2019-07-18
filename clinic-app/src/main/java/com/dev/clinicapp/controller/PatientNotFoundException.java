@@ -8,7 +8,7 @@ public class PatientNotFoundException extends Exception {
 	
 	private static final long serialVersionUID = 1L;
 
-	public PatientNotFoundException(String msg) {
-    	 super("Patient cannot be found");
+	public PatientNotFoundException(int id) {
+    	 super("Cannot be found patient " +  id);
      }
 }

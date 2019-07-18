@@ -1,5 +1,6 @@
 package com.dev.clinicapp.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,7 @@ public class Users {
 	private String username;
 	private String email;
 	private String password;	
+	
 	private String role;
 	
 	public Users() {}

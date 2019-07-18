@@ -38,11 +38,13 @@ public class PatientRegistrationController {
 	}
 	
 	@PostMapping(path="/register")
-	public ResponseEntity<?> create(@RequestBody Patient patient) {
+	public ResponseEntity<Object> create(@RequestBody Patient patient) {
 		Patient registeredPatient = service.create(patient);
 		
+		System.out.println(ServletUriComponentsBuilder.fromCurrentRequest().toUriString());
+		
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("{/id}")
+				.path("/{id}")
 				.buildAndExpand(registeredPatient.getId()).toUri();
 		
 		return ResponseEntity.created(location).build();

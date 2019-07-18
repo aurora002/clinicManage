@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.clinicapp.entity.Users;
 import com.dev.clinicapp.model.dto.BaseResponseObject;
-import com.dev.clinicapp.model.dto.UserDTO;
 import com.dev.clinicapp.service.UserRegistrationService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)

@@ -4,17 +4,20 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.dev.clinicapp.controller.PatientNotFoundException;
 import com.dev.clinicapp.entity.Patient;
 import com.dev.clinicapp.repository.PatientCrudRepository;
 
 @Service
 public class PatientRegistrationServiceImpl implements PatientRegistrationService {
-
+	
 	@Autowired
 	private PatientCrudRepository patientCrudRepository;
-	 
+    	 
 
 	@Override
 	public Patient create(Patient patient) {
@@ -39,8 +42,9 @@ public class PatientRegistrationServiceImpl implements PatientRegistrationServic
 	}
 
 	@Override
-	public Patient findById(int id) {
-		return patientCrudRepository.findById(id).get();
+	public Patient findById(int id) throws PatientNotFoundException {
+		return patientCrudRepository.findById(id)
+				.orElseThrow(() -> new PatientNotFoundException(id));
 	}
 
 	@Override
