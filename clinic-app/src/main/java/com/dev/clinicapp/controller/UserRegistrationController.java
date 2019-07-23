@@ -1,6 +1,5 @@
 package com.dev.clinicapp.controller;
 
-import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +14,9 @@ import com.dev.clinicapp.entity.Users;
 import com.dev.clinicapp.model.dto.BaseResponseObject;
 import com.dev.clinicapp.service.UserRegistrationService;
 
+/*
+ * testing comment only
+ */
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping({"/api/user"})
