@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/_services/alert.service';
@@ -8,7 +8,8 @@ import { first } from 'rxjs/operators';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  styleUrls: ['./registration.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class RegistrationComponent implements OnInit {
   PatientregisterForm = new FormGroup({

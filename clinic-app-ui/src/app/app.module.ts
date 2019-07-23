@@ -14,6 +14,7 @@ import { UserRegistrationComponent } from './_components/user-registration/user-
 import { AlertService } from './_services/alert.service';
 import { UserService } from './_services/user.service';
 import { HttpHelperService } from './_services/http-helper.service';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { HttpHelperService } from './_services/http-helper.service';
     MyMaterialModule,
     ReactiveFormsModule,
     HttpClientModule,   
+    MatGridListModule
 
   ],
   providers: [
