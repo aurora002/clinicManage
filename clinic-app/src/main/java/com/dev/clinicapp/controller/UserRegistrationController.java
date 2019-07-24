@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.clinicapp.entity.Users;
 import com.dev.clinicapp.model.dto.BaseResponseObject;
+import com.dev.clinicapp.repository.UserCrudRepository;
 import com.dev.clinicapp.service.UserRegistrationService;
 
 /*
@@ -25,12 +26,22 @@ public class UserRegistrationController {
 	@Autowired
 	private UserRegistrationService userRegistrationservice;
 	
+	@Autowired
+	private UserCrudRepository userCrudRepository;
+	
 	@PostMapping(path="/register")
 	public ResponseEntity<?> create(@RequestBody  Users user){
+		BaseResponseObject baseResponseObject = new BaseResponseObject();
+		
+		if( userCrudRepository.findByUsername(user.getUsername()) != null) {
+			baseResponseObject.setMessage(" Username already exist");
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(baseResponseObject);
+		}
+		
 		try {			
 			Users userObj = new Users();
 			Users registerUser = userRegistrationservice.create(userObj,user);
-			BaseResponseObject baseResponseObject = new BaseResponseObject();
+			
 			baseResponseObject.setMessage("Username " + registerUser.getUsername()+ " is created.");
 			return ResponseEntity.ok(baseResponseObject);
 		}catch (Exception e) {
