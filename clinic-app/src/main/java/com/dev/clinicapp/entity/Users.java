@@ -1,25 +1,56 @@
 package com.dev.clinicapp.entity;
 
-import javax.persistence.Column;
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.dev.clinicapp.controller.Role;
 
 @Entity
 public class Users {
-    
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String username;
 	private String email;
-	private String password;	
-	
-	private String role;
-	
-	public Users() {}
+	private String password;
+
+	@Enumerated(EnumType.STRING)
+	private Role role;
+
+	@CreationTimestamp
+	private LocalDateTime created_date;
+
+	@UpdateTimestamp
+	private LocalDateTime modified_date;
+
+	public Users() {
+	}
+
+	public LocalDateTime getCreated_date() {
+		return created_date;
+	}
+
+	public void setCreated_date(LocalDateTime created_date) {
+		this.created_date = created_date;
+	}
+
+	public LocalDateTime getModified_date() {
+		return modified_date;
+	}
+
+	public void setModified_date(LocalDateTime modified_date) {
+		this.modified_date = modified_date;
+	}
 
 	public int getId() {
 		return id;
@@ -53,11 +84,11 @@ public class Users {
 		this.password = string;
 	}
 
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 

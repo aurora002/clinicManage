@@ -6,7 +6,7 @@ import com.dev.clinicapp.model.dto.UserDTO;
 
 public interface UserRegistrationService {
 
-	Users create(Users user, Users userDto);
+	Users create(Users user, UserDTO userDto);
     Users findByUsername (String name);
     Users findByUsernameAndId (String name, Integer id);
 
