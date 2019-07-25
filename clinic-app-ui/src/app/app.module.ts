@@ -15,6 +15,8 @@ import { AlertService } from './_services/alert.service';
 import { UserService } from './_services/user.service';
 import { HttpHelperService } from './_services/http-helper.service';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { DashboardComponent } from './_components/dashboard/dashboard.component';
+import { AuthenticationService } from './_services/authentication.service';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AlertComponent,
     RegistrationComponent,
     LoginComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
   providers: [
     HttpHelperService,
     AlertService,
-    UserService
+    UserService,
+    AuthenticationService
 
   ],
   bootstrap: [AppComponent]

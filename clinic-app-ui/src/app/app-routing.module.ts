@@ -4,6 +4,7 @@ import { RegistrationComponent } from './_components/registration/registration.c
 import { LoginComponent } from './_components/login/login.component';
 import { AppComponent } from './app.component';
 import { UserRegistrationComponent } from './_components/user-registration/user-registration.component';
+import { DashboardComponent } from './_components/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path:'userRegisteration',
     component: UserRegistrationComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   }
 ];
 
