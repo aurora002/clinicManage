@@ -17,7 +17,7 @@ export class AuthenticationService {
                 .pipe(map(
                     data => {
                         sessionStorage.setItem('email', email);
-                        const token = 'Bearer '+data.jwt;
+                        let token = 'Bearer '+data.jwt;
                         sessionStorage.setItem('token', token);
                         return data;
                     }

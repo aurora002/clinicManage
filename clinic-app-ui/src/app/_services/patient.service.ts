@@ -27,7 +27,11 @@ export class PatientService {
     searchPatient(req: any): Observable<any>{
         let urlParam = new HttpParams();
         urlParam = ApiHelper.extractUrlParam(urlParam, req);
-        return this.httpHelperService.get(`${this.apiRoot}/patient/search`,urlParam);
+        return this.httpHelperService.get(`${this.apiRoot}/patient/patients`,urlParam);
+    }
+
+    getAllPatients(): Observable<any>{
+        return this.httpHelperService.get(`${this.apiRoot}/patient/patients`);
     }
 
 }

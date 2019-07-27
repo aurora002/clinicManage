@@ -6,4 +6,5 @@ export class Patient {
     age:string;
     address:string;
     gender:string;
+    phoneNumber:string;
 }

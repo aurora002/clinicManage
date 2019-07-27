@@ -51,12 +51,8 @@ public class PatientRegistrationController {
 	}
 	
 	@DeleteMapping(path = {"{/id}"})
-	public Patient delete(int id) {
-		return service.delete(id);
-	}
-	
-	@GetMapping
-	public List<Patient> findAll() {
-		return service.findAll();
+	public ResponseEntity<?> delete(@PathVariable ("id") int id) {
+		Patient patient = service.delete(id);
+		return ResponseEntity.ok(patient);
 	}
 }
