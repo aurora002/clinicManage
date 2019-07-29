@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './_components/alert/alert.component';
@@ -9,7 +9,7 @@ import { RegistrationComponent } from './_components/registration/registration.c
 // app/app.module.ts
 import { MyMaterialModule } from './material.module';
 import { LoginComponent } from './_components/login/login.component';
-import { ReactiveFormsModule }    from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { UserRegistrationComponent } from './_components/user-registration/user-registration.component';
 import { AlertService } from './_services/alert.service';
 import { UserService } from './_services/user.service';
@@ -17,6 +17,7 @@ import { HttpHelperService } from './_services/http-helper.service';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DashboardComponent } from './_components/dashboard/dashboard.component';
 import { AuthenticationService } from './_services/authentication.service';
+import { HttpInterceptorService } from './_services/http-interceptor.service';
 
 
 @NgModule({
@@ -42,8 +43,10 @@ import { AuthenticationService } from './_services/authentication.service';
     HttpHelperService,
     AlertService,
     UserService,
-    AuthenticationService
-
+    AuthenticationService,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
