@@ -3,8 +3,9 @@
   <mat-toolbar-row>
      <span><a href="/">HOME</a></span>
      <span class="spacer"></span>
-     <a mat-button routerLink="/userRegisteration">User Register</a>
-     <a mat-button routerLink="/login">Login</a>
+     <a mat-button *ngIf="!authService.isUserLoggedIn()" routerLink="/userRegisteration">User Register</a>
+     <a mat-button *ngIf="!authService.isUserLoggedIn()" routerLink="/login">Login</a>
+     <a mat-button *ngIf="authService.isUserLoggedIn()" (click)="authService.logout()" routerLink="/logout">Log out</a>
   </mat-toolbar-row>
 </mat-toolbar>
 
