@@ -17,11 +17,9 @@ import { HttpHelperService } from './_services/http-helper.service';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DashboardComponent } from './_components/dashboard/dashboard.component';
 import { AuthenticationService } from './_services/authentication.service';
-<<<<<<< Updated upstream
 import { HttpInterceptorService } from './_services/http-interceptor.service';
-=======
-import { AuthGuard } from './guards/auth-guard.service';
->>>>>>> Stashed changes
+import { AuthGuard } from './guards/auth-guard';
+
 
 
 @NgModule({
@@ -39,7 +37,7 @@ import { AuthGuard } from './guards/auth-guard.service';
     BrowserAnimationsModule,
     MyMaterialModule,
     ReactiveFormsModule,
-    HttpClientModule,   
+    HttpClientModule,
     MatGridListModule
 
   ],
@@ -48,14 +46,10 @@ import { AuthGuard } from './guards/auth-guard.service';
     AlertService,
     UserService,
     AuthenticationService,
-<<<<<<< Updated upstream
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true
     }
-=======
-    AuthGuard
-
->>>>>>> Stashed changes
   ],
   bootstrap: [AppComponent]
 })

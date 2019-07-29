@@ -19,7 +19,7 @@ export class AuthenticationService {
                 .pipe(map(
                     data => {
                         sessionStorage.setItem('email', email);
-                        let token = 'Bearer '+data.jwt;
+                        let token = 'Bearer '+ data.jwt;
                         sessionStorage.setItem('token', token);
                         return data;
                     }
@@ -28,7 +28,6 @@ export class AuthenticationService {
 
         isUserLoggedIn() {
             const user = sessionStorage.getItem('email');
-
             console.log(user);
             return !(user === null);
         }

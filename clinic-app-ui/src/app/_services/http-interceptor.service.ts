@@ -3,7 +3,7 @@ import { HttpClient, HttpInterceptor, HttpRequest, HttpHandler } from '@angular/
 
 @Injectable({ providedIn: 'root'})
 export class HttpInterceptorService implements HttpInterceptor {
-    constructor ( private httpClient: HttpClient){}
+    constructor( private httpClient: HttpClient) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
 

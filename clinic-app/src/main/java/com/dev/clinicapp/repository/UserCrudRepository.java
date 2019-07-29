@@ -11,5 +11,6 @@ public interface  UserCrudRepository extends JpaRepository<Users , Integer>{
 	Users findByUsername(String name);
 	Users findByUsernameAndId( String name, Integer id);
 	Users findByEmail(String email);
+	Users findById(int id);
 	
 }

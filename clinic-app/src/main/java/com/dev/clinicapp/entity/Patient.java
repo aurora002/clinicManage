@@ -1,15 +1,22 @@
 package com.dev.clinicapp.entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Patient {
@@ -17,6 +24,12 @@ public class Patient {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	
+	@CreationTimestamp
+	private LocalDateTime created_date;
+	
+	@UpdateTimestamp
+	private LocalDateTime modified_date;
 	
 	@OneToOne(fetch= FetchType.LAZY, mappedBy="patient")
 	private PatientRecord patientRecord;
@@ -26,6 +39,9 @@ public class Patient {
 	private int age;
 	private String gender;
 	
+	@ManyToMany(mappedBy="patients")
+	private Set<Users> user = new HashSet<>();
+	
 	@Temporal(TemporalType.DATE)
 	private Date dob;
 	
@@ -34,9 +50,18 @@ public class Patient {
 	
 	protected Patient() {}
 	
+	public Set<Users> getUser() {
+		return user;
+	}
+
+	public void setUser(Set<Users> user) {
+		this.user = user;
+	}
+
 	public PatientRecord getPatientRecord() {
 		return patientRecord;
 	}
+	
 	public void setPatientRecord(PatientRecord patientRecord) {
 		this.patientRecord = patientRecord;
 	}
@@ -44,6 +69,7 @@ public class Patient {
 	public String getGender() {
 		return gender;
 	}
+	
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
@@ -51,6 +77,7 @@ public class Patient {
 	public Date getDob() {
 		return dob;
 	}
+	
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
@@ -58,6 +85,7 @@ public class Patient {
 	public int getPhoneNumber() {
 		return phoneNumber;
 	}
+	
 	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
@@ -65,6 +93,7 @@ public class Patient {
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -79,6 +108,7 @@ public class Patient {
 	public String getAddress() {
 		return address;
 	}
+	
 	public void setAddress(String address) {
 		this.address = address;
 	}
@@ -86,6 +116,7 @@ public class Patient {
 	public int getAge() {
 		return age;
 	}
+	
 	public void setAge(int age) {
 		this.age = age;
 	}
@@ -93,9 +124,15 @@ public class Patient {
 	public String getIc() {
 		return ic;
 	}
+	
 	public void setIc(String ic) {
 		this.ic = ic;
 	}
+	
+	public void addDoctor(Users user) {
+        this.user.add(user);
+        user.getPatients().add(this);
+    }
 	
 	@Override
 	public String toString() {

@@ -1,6 +1,8 @@
 package com.dev.clinicapp.entity;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -8,6 +10,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -20,20 +25,36 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String username;
-	private String email;
-	private String password;
-
-	@Enumerated(EnumType.STRING)
-	private Role role;
-
+	
 	@CreationTimestamp
 	private LocalDateTime created_date;
 
 	@UpdateTimestamp
 	private LocalDateTime modified_date;
 
+	private String username;
+	private String email;
+	private String password;
+	
+	@ManyToMany
+	@JoinTable(
+			name="doctor_patient",
+			joinColumns= {@JoinColumn(name="doctor_id")}, 
+			inverseJoinColumns= {@JoinColumn(name="patient_id")})
+	private Set<Patient> patients = new HashSet<>();
+
+	@Enumerated(EnumType.STRING)
+	private Role role;
+
 	public Users() {
+	}
+
+	public Set<Patient> getPatients() {
+		return patients;
+	}
+
+	public void setPatients(Set<Patient> patients) {
+		this.patients = patients;
 	}
 
 	public LocalDateTime getCreated_date() {
