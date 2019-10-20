@@ -31,7 +31,7 @@ public class Patient {
 	@UpdateTimestamp
 	private LocalDateTime modified_date;
 	
-	@OneToOne(fetch= FetchType.LAZY, mappedBy="patient")
+	@OneToOne(fetch= FetchType.LAZY)
 	private PatientRecord patientRecord;
 	
 	private String name;
@@ -39,8 +39,8 @@ public class Patient {
 	private int age;
 	private String gender;
 	
-	@ManyToMany(mappedBy="patients")
-	private Set<Users> user = new HashSet<>();
+//	@ManyToMany(mappedBy="patients")
+//	private Set<Users> user = new HashSet<>();
 	
 	@Temporal(TemporalType.DATE)
 	private Date dob;
@@ -50,13 +50,13 @@ public class Patient {
 	
 	protected Patient() {}
 	
-	public Set<Users> getUser() {
-		return user;
-	}
-
-	public void setUser(Set<Users> user) {
-		this.user = user;
-	}
+//	public Set<Users> getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(Set<Users> user) {
+//		this.user = user;
+//	}
 
 	public PatientRecord getPatientRecord() {
 		return patientRecord;
@@ -129,10 +129,10 @@ public class Patient {
 		this.ic = ic;
 	}
 	
-	public void addDoctor(Users user) {
-        this.user.add(user);
-        user.getPatients().add(this);
-    }
+//	public void addDoctor(Users user) {
+//        this.user.add(user);
+//        user.getPatients().add(this);
+//    }
 	
 	@Override
 	public String toString() {

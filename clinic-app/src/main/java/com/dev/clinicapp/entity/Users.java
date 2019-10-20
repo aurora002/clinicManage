@@ -36,12 +36,12 @@ public class Users {
 	private String email;
 	private String password;
 	
-	@ManyToMany
-	@JoinTable(
-			name="doctor_patient",
-			joinColumns= {@JoinColumn(name="doctor_id")}, 
-			inverseJoinColumns= {@JoinColumn(name="patient_id")})
-	private Set<Patient> patients = new HashSet<>();
+//	@ManyToMany
+//	@JoinTable(
+//			name="doctor_patient",
+//			joinColumns= {@JoinColumn(name="doctor_id")},
+//			inverseJoinColumns= {@JoinColumn(name="patient_id")})
+//	private Set<Patient> patients = new HashSet<>();
 
 	@Enumerated(EnumType.STRING)
 	private Role role;
@@ -49,13 +49,13 @@ public class Users {
 	public Users() {
 	}
 
-	public Set<Patient> getPatients() {
-		return patients;
-	}
-
-	public void setPatients(Set<Patient> patients) {
-		this.patients = patients;
-	}
+//	public Set<Patient> getPatients() {
+//		return patients;
+//	}
+//
+//	public void setPatients(Set<Patient> patients) {
+//		this.patients = patients;
+//	}
 
 	public LocalDateTime getCreated_date() {
 		return created_date;

@@ -74,30 +74,30 @@ public class UserRegistrationController {
 		
 	}
 	
-	@PutMapping(path="/assign/{doctor_id}/{patient_id}")
-	public ResponseEntity<?> assign( @PathVariable("patient_id") int patient_id, 
-			@PathVariable("doctor_id") int doctor_id) {
-		BaseResponseObject response = new BaseResponseObject();
-		
-		Patient patient = patientCrudRepository.findById(patient_id).get();
-		Users user = userCrudRepository.findById(doctor_id);
-		
-		user.getPatients().add(patient);
-		patient.getUser().add(user);
-		
-		userCrudRepository.save(user);
-		 
-		response.setMessage("Doctor " + doctor_id + " has been assigned to patient " + patient_id);
-		return ResponseEntity.status(HttpStatus.OK).body(response);
-	}
+//	@PutMapping(path="/assign/{doctor_id}/{patient_id}")
+//	public ResponseEntity<?> assign( @PathVariable("patient_id") int patient_id,
+//			@PathVariable("doctor_id") int doctor_id) {
+//		BaseResponseObject response = new BaseResponseObject();
+//
+//		Patient patient = patientCrudRepository.findById(patient_id).get();
+//		Users user = userCrudRepository.findById(doctor_id);
+//
+//		user.getPatients().add(patient);
+//		patient.getUser().add(user);
+//
+//		userCrudRepository.save(user);
+//
+//		response.setMessage("Doctor " + doctor_id + " has been assigned to patient " + patient_id);
+//		return ResponseEntity.status(HttpStatus.OK).body(response);
+//	}
 	
-	@GetMapping(path="/retrieve/{doctor_id}") 
-	public Set<Patient> retrievePatientListAssigned (@PathVariable("doctor_id") int doctor_id){
-		Users user = userCrudRepository.findById(doctor_id);
-		Set<Patient> patients = user.getPatients();
-		
-		return patients;
-	}
+//	@GetMapping(path="/retrieve/{doctor_id}")
+//	public Set<Patient> retrievePatientListAssigned (@PathVariable("doctor_id") int doctor_id){
+//		Users user = userCrudRepository.findById(doctor_id);
+//		Set<Patient> patients = user.getPatients();
+//
+//		return patients;
+//	}
 	
 	@PostMapping(path="/login")
 	public ResponseEntity<?> authenticate(@RequestBody LoginForm form) {

@@ -20,7 +20,7 @@ public class PatientRecord {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "patientRecord")
 	@JoinColumn(name="patient_id",unique=true)
 	private Patient patient;
 	
