@@ -17,8 +17,9 @@ export class RegistrationComponent implements OnInit {
     email: new FormControl(''),
     ic: new FormControl(''),
     dob: new FormControl(''),
+    age: new FormControl(''),
     address: new FormControl(''),
-    hp: new FormControl(''),
+    phoneNumber: new FormControl(''),
     gender: new FormControl(''),
     });
     loading = false;
@@ -37,7 +38,8 @@ export class RegistrationComponent implements OnInit {
           name: ['', Validators.required],
           address:['',Validators.required],
           ic:[''],
-          hp:[''],
+          age:[''],
+          phoneNumber:[''],
           gender:[''],
           dob:[''],
           email:[''],
