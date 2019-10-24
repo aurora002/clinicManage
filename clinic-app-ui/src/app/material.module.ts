@@ -9,13 +9,16 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatRadioModule,
-  MatListModule
+  MatListModule,
+  MatSortModule
 } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   imports: [
@@ -33,7 +36,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatRadioModule,
     MatSelectModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule,
+    FlexLayoutModule
   ],
   exports: [
     MatNativeDateModule,
@@ -50,7 +55,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatRadioModule,
     MatSelectModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule,
+    FlexLayoutModule
   ]
 })
 export class MyMaterialModule {}
