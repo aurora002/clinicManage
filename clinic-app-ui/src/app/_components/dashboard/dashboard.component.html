@@ -1,12 +1,17 @@
 
       <div class="container">
             <div class="row first"  >
+               <div class="col-sm-2">{{user}}</div>               
                <div class="col-sm-6 offset-sm-3">
-                  <ul class="nav nav-tabs">
-                     <li role="presentation"><a routerLink="/registration">Patient Register</a></li>
+                  <ul class="nav nav-tabs">               
+                     <li role="presentation" ><a routerLink="/registration" color="warn"><img src="../assets/people.png">
+                      <span class="tooltiptext">Patient registration</span>
+                     </a></li>                     
                   </ul>
+            
                </div>
-            </div>
+              </div>
+
             <div class="row">
                   <div class="col-sm-6 offset-sm-3">
                      <router-outlet></router-outlet>
@@ -14,45 +19,6 @@
             </div>
          </div>
          
-      <mat-card class="my-card">
-         <mat-card-content>
-           {{ user }}
-         </mat-card-content>
-         <!-- <mat-card-actions>      <button mat-raised-button (click)="logout()" color="primary">Logout</button>    </mat-card-actions> -->
-      </mat-card>
-
-      <!-- <div class="col-md-6">
-         <h2> Patient List</h2>
-         
-         <table class="table table-striped">
-           <thead>
-           <tr>
-             <th>Id</th>
-             <th>IC</th>
-             <th>Name</th>
-             <th>Age</th>
-             <th>Gender</th>
-             <th>Dob</th>
-             <th>Phone Number</th>
-             <th>Address</th>
-             <th>Action</th>
-           </tr>
-         </thead>
-         <tbody>
-           <tr *ngFor="let patient of patients">
-             <td>{{ patient.id }}</td>
-             <td>{{ patient.ic }}</td>
-             <td>{{ patient.name }}</td>
-             <td>{{ patient.age }}</td>
-             <td>{{ patient.gender }}</td>
-             <td>{{ patient.dob}}</td>
-             <td>{{ patient.phoneNumber }}</td>
-             <td>{{ patient.address }}</td>
-             <td><button class="btn btn-danger" (click)="deleteUser(user)"> Delete User</button></td>
-           </tr>
-         </tbody>
-         </table>
-         </div> -->
 
 <div fxLayout fxLayoutAlign="center center">
     <mat-form-field fxFlex="40%">

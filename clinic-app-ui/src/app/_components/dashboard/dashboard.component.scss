@@ -2,13 +2,18 @@ table {
   width: 100%;
 }
 
+.container{
+  display:inline-block
+
+}
 .mat-column-select {
   overflow: initial;
   
 }
 
 .first {
-  background-color: #fff;
+  background-color: grey;
+ 
 }
 
 
