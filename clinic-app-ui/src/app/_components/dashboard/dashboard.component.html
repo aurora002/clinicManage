@@ -18,13 +18,33 @@
                   </div>
             </div>
          </div>
-         
-
+        
+<!-- filter -->
 <div fxLayout fxLayoutAlign="center center">
     <mat-form-field fxFlex="40%">
-      <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+      <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter Patient">
     </mat-form-field>
-</div>   
+
+<!-- assignee -->
+<div class="doctors">
+
+
+<mat-form-field>
+  <mat-label>Doctors</mat-label>
+  <select matNativeControl required>
+    <option value="volvo">Doctor A</option>
+
+  </select>
+</mat-form-field> 
+
+<button mat-button
+  (click)="onClickAssign()"
+  [disabled]="disableAssign" 
+  >Assign!
+</button>
+</div>
+
+</div>
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
  
