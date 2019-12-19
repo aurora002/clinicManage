@@ -1,5 +1,6 @@
 package com.dev.clinicapp.controller;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,5 +111,11 @@ public class UserRegistrationController {
 		
 		return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername()));
 		
+	}
+
+	@GetMapping(path="/doctor")
+	public ResponseEntity<?> getAllDoctors() {
+		List<Users> users = userCrudRepository.findByRole(Role.DOCTOR);
+		return ResponseEntity.ok(users);
 	}
 }

@@ -1,5 +1,7 @@
 package com.dev.clinicapp.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -35,6 +37,11 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 	public Users findByUsernameAndId(String name, Integer id) {
 		// TODO Auto-generated method stub
 		return userCrudRepository.findByUsernameAndId(name, id);
+	}
+
+	@Override
+	public List<Users> findByRole(Role role) {
+		return userCrudRepository.findByRole(role);
 	}
 
 }
